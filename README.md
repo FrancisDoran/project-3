@@ -1,13 +1,11 @@
 # project-3
 ## Project Proposal: "Disclosure Hub" - Analyzing Disclosure Forms of Oakland Elected Officials
-
+Data visulizations are just ideas it'll be more informed by what I have once it's in the database, the idea is to show how finacial interests intersect with Oakland elceted officials.
 ## Introduction:
 Transparency is pivotal in preserving the trust between the public and elected officials. "Disclosure Hub" aims to create a seamless platform to visualize and analyze the varying disclosures made by Oakland's elected officials. By collating forms like 460s, 803s, 802s, 700 and lobbyist activity reports, the project intends to offer a comprehensive perspective on these officials' disclosed interactions, finances, and potential influences.
 
 ## Objective:
 To provide users with an intuitive interface where they can delve into the diverse disclosures of Oakland elected officials, discern patterns, and gain insight into potential areas of interest or concern.
-
-## Technical Specifications:
 
 ## Dataset:
 
