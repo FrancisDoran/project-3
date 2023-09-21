@@ -1,0 +1,84 @@
+﻿@import url("/PECCommon/Theme.LobbyistReportingTheme.css?4905");
+
+/* ================================================
+
+Primary color customization
+For additional color customizations, you can change the color code for the colors below
+
+  ================================================ */
+  
+:root {
+    --color-primary: #1F4788; /*primary-color*/
+    --color-primary-hover: #1F4788; /*primary-color*/
+    --color-secondary: #1F4788; /*primary-color*/
+}
+
+.layout .header, .Content-Background {
+    /*background-color: #acac8e !important;*/
+    
+    /*latest background-color: #f9f9bb !important;*/
+    background-color: #5e5e05 !important;
+
+.header, .header a {
+    color: #161313;
+}
+
+.ContentHeaderContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.ContentSegment {
+    margin-top: 20px;
+}
+
+.SegmentPart {
+    margin-top: 10px;   
+}
+.Border-Grey-Small {
+    border-color: #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.Width_45pct {
+    width: 45%;   
+}
+
+.Width_40pct {
+    width: 40%;   
+}
+
+.Width_35pct {
+    width: 35%;   
+}
+
+.Width_30pct {
+    width: 30%;   
+}
+
+.Width_25pct {
+    width: 25%;   
+}
+
+.Width_20pct {
+    width: 20%;   
+}
+
+.Width_15pct {
+    width: 15%;   
+}
+
+.Width_10pct {
+    width: 10%;   
+}
+
+.Width_5pct {
+    width: 5%;   
+}
+
+.layout .header{
+   background-color: #5e5e05 !important;
+
+}

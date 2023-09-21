@@ -1,0 +1,42 @@
+﻿.accordion-item-title
+{
+    background-color: #7b774e !important;
+     /* background-color: #eaeff1 !important;*/
+    font-weight: bold;
+    font-size: 14px !important;
+    border-radius: 4px;
+}
+.accordion-item-header {
+    color: white;
+}
+.TableRecords .TableRecords_Header, .EditableTable thead th 
+{
+   /* background-color: #dbe1e6!important;*/
+    
+/*background-color:rgba(241, 243, 245, 1) !important;*/
+ background-color: #4d6690 !important;
+    color: white !important;
+
+}
+
+.Width_20pct,.Width_15pct,.Width_10pct
+{
+    background-color: #4d6690 !important;
+    color: white !important; 
+}
+
+.layout .header{
+     background-color: #5e5e05 !important;
+}
+.footer{
+     background-color: #5e5e05 !important;
+}
+.footer span
+{
+    color:#fff;
+}
+
+div.Counter_Message
+{
+    color:#000!important;
+}
