@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oakland Officials Lobbyist Disclosure</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Lobbyist Data Visualization Dashboard</h1>
+        <div v-if="landing" class="landing">
+            <h2>Officials List</h2>
+            <official-card 
+                v-for="official in officialsList" 
+                :key="official.official_name" 
+                :official="official" 
+                @view-details="handleOfficialSelected(official.official_name)">
+            </official-card>
+            
+        </div>
+        
+        <div v-else class="focus-container">    
+            <!-- Display the current clicked official's card -->
+            <div class="focus-official-card">
+                <official-card 
+                    :key="currentOfficial.official_name" 
+                    :official="currentOfficial">
+                </official-card>
+            </div>
+        
+            <div class="focus-visualization">
+                <div id="visualization"></div>
+            </div>
+        
+            
+        </div>
+        <h2>Visualization Controls</h2>
+        <!-- Button to go back to the landing page -->
+        <button @click="selectedView = 'stackedBar'">Lobbyist Contacts Count</button>
+        <button @click="selectedView = 'pieChart'">Position Breakdown</button>
+        <button @click="selectedView = 'barChart'">Most Frequent Lobbyist</button>
+        <button @click="selectedView = 'donutChart'">Subject Breakdown</button>
+        <button @click="goBackToLanding">Back to Officials</button>
+        <select v-model="selectedClient" @change="clientChanged">
+            <option>All</option>
+            <option v-for="client in clients" :key="client">{{client}}</option>
+        </select>
+        <h2>Overall Visualization</h2>
+        <div id="visualization"></div>
+    </div>
+    
+    
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script type="module" src="./officialCardComponent.js"></script>
+    <script type="module" src="./app.js"></script>    
+</body>
+<style>
+.official-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    cursor: pointer;
+    max-width: 250px;  
+    max-height: 300px; 
+    overflow: hidden;  
+}
+
+.official-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.landing .official-card {
+    display: inline-block;
+}
+
+.focus-container {
+    display: flex;           
+    align-items: flex-start; 
+    gap: 20px;               
+}
+
+.focus-official-card {
+    flex: 1;                
+    max-width: 25%;         
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 100px 10px 10px 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.focus-visualization {
+    flex: 1;                
+    max-width: 75%;         
+}
+
+</style>
+</html>
