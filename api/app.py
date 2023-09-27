@@ -6,7 +6,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) 
 # Database connection
-engine = create_engine('../api/sqlite:///lobbyist.db')
+engine = create_engine('sqlite:///../data/lobbyist.db')
 
 @app.route('/')
 def index():

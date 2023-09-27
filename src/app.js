@@ -12,7 +12,7 @@ const app = Vue.createApp({
             selectedClient: "All",
             landing: true,
             currentOfficial: null,
-            officialsList: [
+            officialsList: [ /*These are the currently in office officials and therfore are displayed on the landing page */
                 { official_name: 'Sheng Thao', office_name: 'Mayor', image: 'https://city-of-oakland.imgix.net/portraits/Mayor-Thao-Headshot.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=500&q=80&w=500' },
                 { official_name: 'Rebecca Kaplan', office_name: 'Council Member, At-Large', image: 'https://city-of-oakland.imgix.net/portraits/Rebecca-Kaplan.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.4975&fp-y=0.3475&h=400&q=80&w=400' },
                 { official_name: 'Dan Kalb', office_name: 'Council Member, District 1', image: 'https://city-of-oakland.imgix.net/portraits/DanKalb_photo.jpg?auto=compress%2Cformat&crop=focalpoint&fit=crop&fp-x=0.5&fp-y=0.5&h=500&q=80&w=500' },
@@ -107,7 +107,7 @@ const app = Vue.createApp({
             let values = clients.map(client => filteredData.filter(item => item.Client === client).length);
         
             let sortedIndices = values.map((item, index) => index).sort((a, b) => values[b] - values[a]);
-            let topN = 10; // adjust based on preference
+            let topN = 10;
             let topClients = sortedIndices.slice(0, topN).map(index => clients[index]);
             let topValues = sortedIndices.slice(0, topN).map(index => values[index]);
         
@@ -205,7 +205,7 @@ const app = Vue.createApp({
                 values: subjectCounts,
                 labels: subjects,
                 type: 'pie',
-                hole: .4 // This makes it a donut chart
+                hole: .4 
             }];
     
             let layout = {
