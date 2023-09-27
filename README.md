@@ -1,59 +1,41 @@
-# project-3
-## Project Proposal: "Disclosure Hub" - Analyzing Disclosure Forms of Oakland Elected Officials
-Data visulizations are just ideas it'll be more informed by what I have once it's in the database, the idea is to show how finacial interests intersect with Oakland elceted officials.
-## Introduction:
-Transparency is pivotal in preserving the trust between the public and elected officials. "Disclosure Hub" aims to create a seamless platform to visualize and analyze the varying disclosures made by Oakland's elected officials. By collating forms like 460s, 803s, 802s, 700 and lobbyist activity reports, the project intends to offer a comprehensive perspective on these officials' disclosed interactions, finances, and potential influences.
+# Oakland Lobbyist Disclosure Hub
 
-## Objective:
-To provide users with an intuitive interface where they can delve into the diverse disclosures of Oakland elected officials, discern patterns, and gain insight into potential areas of interest or concern.
+This project aims to provide insights into the lobbying activities in Oakland. Users can explore interactive visualizations to delve into the frequency of lobbyist interactions with officials, the primary subjects of interest, and the major players in the lobbying landscape.
 
-## Dataset:
+## Getting Started
 
-Integrate data for forms 460s, 803s, 802s, 700s and lobbyist activity reports specific to Oakland elected officials. Bellow each form is listed and where it is availiable from.
+1. **Clone** the repository to your local machine.
+2. **Navigate** to the project's root directory.
+3. Run `app.py` from the `api` directory to start the Flask server: 
+   ```bash
+   cd api
+   python app.py
+   ```
+4. Use a local server or VSCode's Live Server extension to run the `lobbyist_disclosure_hub.html` for frontend visualization.
 
-- **Form 700** (Statements of Economic Interests) - Search for SEI Statements (netfile.com) and Swagger UI (netfile.com)
-- **Form 803** (behested payments) - Charitable Contributions at the Request of an Elected Official - Behested Payment Reports (FPPC Form 803) | Open Data Portal (oaklandca.gov)
-- **Form 802** (ticket distribution) - Ticket Distribution Disclosure - FPPC Form 802 ~ City of Oakland, California (oaklandnet.com)
-- **Form 410** (committee statment of organization) - Candidate Contributions (Show Me the Money) | Open Data Portal (oaklandca.gov)
-- **Form 460** (campaign finance) - Candidate Contributions (Show Me the Money) | Open Data Portal (oaklandca.gov)
-- **Lobbyist Activity Reports** (contact with lobbyists) - Lobbyist Reports Filed (oaklandca.gov)
+## File Descriptions
 
-### User Interaction and Interface:
+- **`app.js`**: Main JavaScript logic for visualizations and interactions.
+- **`app.py`**: Flask API to interact with the backend and serve data.
+- **`cleaning.ipynb`**: Jupyter notebook for data cleaning and database creation.
+- **`contact_df.csv`**: Raw data collected from web scraping.
+- **`form700etl.ipynb`**: Work-in-progress for parsing Form 700 data using the Netfile API.
+- **`lobbyist_disclosure_hub.html`**: Frontend UI for the project.
+- **`lobbyist.db`**: Database storing the processed data.
+- **`lobbyist_reports.ipynb`**: Jupyter notebook dedicated to the web scraping process.
+- **`officialCardComponent.js`**: Vue component to display official cards.
 
-An interactive dashboard with dropdown menus and search bars, allowing users to select specific elected officials or form types.
-### Data Visualizations:
+## Future Plans
+- **Date Filtering:** Soon, you'll be able to filter visualizations based on specific dates and view officials relevant to that time period.
+- **Visualization Logic Improvements:** We're looking to enhance the visualization update mechanism for a smoother user experience.
+### Complete Disclosure Hub
+- **Adding Other City Official Forms:** The priority is as ordered bellow.
+- **Form 700s - Economic Interests:** I'm currently working on integrating Form 700 statement of economic interest to provide a more comprehensive overview.
+- **Form 802s - Ticket Distributions:** Given the fairly recent ticket distribution scandal (https://www.sfchronicle.com/bayarea/article/Oakland-ethics-commission-slams-sports-ticket-10990764.php) this is worth keeping an eye on, also the forms are currently hosted on the old Oakland city website.
+- **Form 803s - Behested Payments:** There are already some charts on data.oaklandca.gov, they focus on total behested sums per year by official, so I could put more focus on payor and payee.
+- **Form 460s - Campaign Finances:** Form 460s are campaign finace expenditure and contribution reports, while this fits with this project it is largely redundant as a very similar project "Show Me the Money" already exists. 
+## Notes
 
-#### Form 460s - Campaign Finances:
+If you attempt to run the HTML file directly without a local server setup, you may face CORS issues. Ensure the project is being served via a local server for a seamless experience.
 
-- **Top Contributors**: A bar chart displaying the top contributors (by total amount) to specific officials or overall for a selected time frame.
-- **Office-wise Campaign Finances**: Pie charts showing the total contributions received by candidates for each office (like Mayor, City Council District 6) for the chosen election year.
-- **Contribution Over Time**: A line chart displaying the pattern of campaign contributions over time.
-- **Retrieval**: Socrata Open Data API
-- **Note**: While this fits with this project it is largely redundant as a very similar project "Show Me the Money" already exists. There are easily more than 100 records.
-#### Form 803s - Behested Payments:
-
-- **Payments Distribution**: A pie chart showcasing the distribution of behested payments among various officials.
-- **Top Payors**: A bar chart highlighting the most frequent or highest-value payors.
-- **Purpose Breakdown**: A treemap visualization detailing the specific purposes for which behested payments were made.
-- **Retrieval**: Socrata Open Data API
-- **Note**: Given the length of the current Mayor's administration (the mayor is repsonsible for the majority of behested payments) there will not be many records but if I include previous Mayors' administrations there would be more, there have been 187 form 803s filed since 3/1/2017 by all filers.
-#### Form 802s - Ticket Distributions:
-
-- **Top Ticket Distributors**: A bar chart delineating officials who distribute the most tickets.
-- **Ticket Purpose Distribution**: A pie chart showcasing the primary reasons for ticket distribution.
-- **Ticket Source Breakdown**: A column chart detailing the entities/sources of tickets received by the city.
-- **Retrival**: Webscraping
-- **Note**: Significantly more than 100 records.
-#### Form 700s - Economic Interests:
-
-- **Types of Economic Interests**: Pie charts representing the different types of economic interests disclosed (like Trusts, Business Entities, Incomes, etc.).
-- **Value Distribution**: A histogram showcasing the distribution of values of these economic interests across different categories.
-- **Retrieval**: Netfile API
-- **Note**: Form 700s are annual reports, so for just the elected officials there wouldn't be many forms but I still think this is vaulable for the project and depending on how many disclosure the official make there could be 100+ economic interests but this is hardly guaranteed. Also it might be interesting to look at the aggragate data of all form 700s. While form 700s are publicly availiable the majority of filers likely do not expect the level of public scrutiny as an elected official and thus would only be represented in aggragate.
-#### Lobbyist Reports:
-
-- **Most Lobbied Officials**: A bar chart representing officials who are frequently lobbied.
-- **Client Industry**: Pie or bar chart depending on the number of categories show what industries are most represented among lobbying efforts on elected officials.
-- **Frequent Clients**: Bar graph of the most represented clients.
-- **Retrieval**: Webscraping
-- **Note**: From an intial viewing there are very likely more than 100 contacts logged across all elected officials.
+---
